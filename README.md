@@ -14,7 +14,7 @@ An interactive, cyber-minimalist digital dossier built with pure HTML5 and CSS3.
   <img src="./Images/preview.gif" width="700" alt="Card Flip Preview" />
 </div>
 
-> **Live Demo:** *I don't have the link yet :(*
+> **Live Demo:** *https://ash-naj.github.io/Profile_card/*
 
 ---
 
