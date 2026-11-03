@@ -2,7 +2,7 @@
 
 [![Deploy](https://img.shields.io/badge/Deploy-Cloudflare_Pages-F38020?style=for-the-badge&logo=cloudflare&logoColor=white)](https://pages.cloudflare.com/)
 [![Stack](https://img.shields.io/badge/Stack-HTML5_•_CSS3-ec4899?style=for-the-badge)](https://developer.mozilla.org/)
-[![Platform](https://img.shields.io/badge/OS-Arch_Linux-1793D1?style=for-the-badge&logo=arch-linux&logoColor=white)](https://archlinux.org/)
+[![Platform](https://img.shields.io/badge/OS-EndeavourOS-7F3FBF?style=for-the-badge&logo=endeavouros&logoColor=white)](https://endeavouros.com/)
 
 An interactive, cyber-minimalist digital dossier built with pure HTML5 and CSS3. Features a zero-dependency 3D perspective flip between a front-facing credentials badge and an Arch-themed `fastfetch`/`unixporn` terminal readout.
 
