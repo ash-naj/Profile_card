@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=840, user-scalable=yes">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./Styles/Profile_Card_style.css">
+    <title>Profile Card</title>
+</head>
+<body>
+
+    <div class="card-container" onclick="this.classList.toggle('flipped')">
+        <div class="card-inner">
+
+            <div class="card card-front">
+                <div class="left-col">
+
+                    <img id="abimg" src="./Images/pfp.png" alt="My Picture :)">
+
+                    <div class="badges"><span>STATUS</span><span>STUDENT</span></div>
+                    <div class="badges"><span>BASED IN</span><span>AUSTRIA</span></div>
+                    <div class="badges"><span>STACK</span><span>C • PY • R</span></div>
+                    <div class="badges"><span>MEDIA</span><span>FINAL CUT PRO</span></div>
+
+                </div>
+
+                <div class="right-col">
+                    <h1 class="title">Arshia Najmaei</h1>
+                    <h4 class="title" id="subtitle">Undergrad • Robotics & AI</h4>
+                    <div class="desc">
+                        <ul class="list">
+                            <li><span class="highlight">Spotify Analytics Suite:</span> 8-stage pipeline analyzing listening patterns, and automated album art via REST APIs.</li>
+                            <li><span class="highlight">Data & Visualization:</span> Combining <span class="highlight-inline">R & Python</span> for data wrangling, web scraping, and visual generation.</li>
+                            <li><span class="highlight">Low-Level Core:</span> <span class="highlight-inline">C & C++</span> algorithmic problem-solving, memory management, and system coursework.</li>
+                            <li><span class="highlight">Multimedia & VFX:</span> Motion tracking, green-screen compositing in <span class="highlight-inline">Final Cut Pro</span>, and automated FFmpeg pipelines.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card card-back">
+                <div class="terminal-bar">
+                    <div class="term-dots">
+                        <span class="dot red"></span>
+                        <span class="dot yellow"></span>
+                        <span class="dot green"></span>
+                    </div>
+                    <span class="term-title">ash-naj@arch: ~</span>
+                </div>
+
+                <div class="terminal-body">
+                    <pre class="ascii-art">
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡀⠤⠄⠀⠀⠀⠂⠀⠀⠤⠄⠀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠛⠀⠀⠐⠒⠀⠄⣀⠀⠀⠀⠀⠀⠀⠀⠈⠐⠠⠄⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠂⢄⠀⠀⠀⠀⠀⠀⠀⠀⠈⠐⠠⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠀⢀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠑⠄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠠⡀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⢄⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⡾⡟⢢⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠢⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⣶⠲⠦⢤⣀⢠⠄⠶⣒⣖⣾⣿⡿⠀⠈⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠱⡀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠸⣿⣷⣈⠖⣬⣶⢿⣻⣽⢾⣻⣷⡇⠀⠀⢰⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠱⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢿⣟⣿⣻⢟⡾⣯⢷⣟⣿⣯⣿⣥⡆⠀⠘⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠂⢃⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠸⣻⣯⢯⡿⣽⣻⣯⣿⣾⢿⣻⣿⣿⣷⣶⣩⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⠈⡄
+⢠⠄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢾⣿⣯⠿⣽⣿⣽⣷⣿⠛⠻⣿⣿⣿⣿⣿⡿⠀⠀⠀⠀⠀⠀⠀⠀⠀⡀⠀⠀⢁
+⡈⢀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⢝⣿⠀⡘⣿⣿⣾⠃⢆⠀⢨⣿⣿⣿⡟⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡆⢸
+⡇⡌⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣴⣿⣿⣷⣶⣿⣽⣿⣷⣮⣶⣿⣿⣿⠛⠛⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠃⠈
+⡇⠰⠐⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣺⣿⣿⡿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠
+⠇⠀⠡⠘⢄⠀⠀⠀⠀⠀⠀⠀⠀⠰⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢰⠀⢸
+⢠⠀⠀⠐⠄⠑⢄⠀⠀⠀⠀⠀⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡄⠀⡄
+⠈⡀⠀⠀⠀⠑⢄⠁⠂⠄⡀⠀⠀⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠟⠀⠀⠀⠀⠀⠀⠀⠀⡠⠀⠀⡰⠀⢠⠁
+⠀⢡⠀⠀⠀⠀⠀⠈⠢⡀⠀⠈⠁⠒⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠛⠉⠉⠀⠀⠀⠀⠀⠀⠀⠀⠈⠀⠀⠠⠁⠀⠆⠀
+⠀⠀⢂⠀⠀⠀⠀⠀⠀⠈⠀⢀⠀⠀⠀⠉⠉⠉⢻⣿⣿⣿⡍⠉⠉⠉⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡅⠀⠌⠀⠀
+⠀⠀⠀⠢⠀⠀⠀⠀⠀⠀⠀⠈⠀⠀⠀⠀⠀⠀⠀⣿⣿⣿⣷⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡐⢀⠎⠀⠀⠀
+⠀⠀⠀⠀⠑⡄⠀⠀⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⢠⠁⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⢄⠀⢄⠀⠀⠀⠀⠔⠒⢠⣤⣤⣾⣿⣿⣿⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡠⢂⠔⠁⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠁⠄⡡⠀⠀⠀⠢⣰⣿⣿⣿⣿⣿⠟⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⠀⢊⠔⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠂⢔⠀⠀⠀⠉⠉⠉⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡀⠄⢀⠠⠒⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠐⠀⠄⢀⠀⠀⠀⡀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡂⠥⠐⠈⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠀⠀⠀⠒⠒⠒⠂⠀⠈⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+                    </pre>
+
+                    <div class="fetch-info">
+                        <div class="fetch-row"><span class="f-key">OS</span><span class="f-val">Arch Linux x86_64</span></div>
+                        <div class="fetch-row"><span class="f-key">HOST</span><span class="f-val">Alpen-Adria Univ.</span></div>
+                        <div class="fetch-row"><span class="f-key">UPTIME</span><span class="f-val">20+ yrs</span></div>
+                        <div class="fetch-row"><span class="f-key">SHELL</span><span class="f-val">bash / zsh</span></div>
+                        <div class="fetch-row"><span class="f-key">STACK</span><span class="f-val">C, C++, Python, R</span></div>
+                        <div class="fetch-row"><span class="f-key">MEDIA</span><span class="f-val">Final Cut Pro, FFmpeg</span></div>
+                        <div class="fetch-row"><span class="f-key">STUDY</span><span class="f-val">BACHELOR • ROBOTICS & AI</span></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="button-wrapper">
+        <a href="https://github.com/ash-naj" class="btn" id="button">ash-naj on GitHub ↗</a>
+    </div>
+</body>
+</html>

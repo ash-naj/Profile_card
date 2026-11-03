@@ -1,0 +1,425 @@
+/*adding the FONTS */
+@font-face {
+    font-family: robotheroesfont;
+    src: url("../Fonts/robot-heroes-font/RobotHeroes-0vy69.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: corpticfont;
+    src: url("../Fonts/corptic-font/CorpticdemoRegular-Yqrp4.otf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+:root {
+    --bg-dark: #121216;
+    --card-surface: #1b1b22;
+    --card-border: rgba(236, 72, 153, 0.25);
+    --pink-primary: #ec4899;
+    --pink-soft: #f472b6;
+    --pink-glow: rgba(236, 72, 153, 0.4);
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+/*
+vh stands for viewport, 100vh means all of the browser window's height
+min-height garantees the body will be at least as tall as the entire visible
+screen, also allows the page to be scrollable rather than clipping content
+*/
+    min-height: 100vh;
+    background-color: var(--bg-dark);
+    color: #f1f1f1;
+    flex-direction: column;
+    padding: 20px 0;
+    box-sizing: border-box;
+}
+
+.card-container {
+    width: 800px;
+    height: 470px;
+/*
+creates the illusion of distance from the viewer's eye, without it,
+it would look just 2D.
+*/
+    perspective: 1200px;
+/* changes the mouse pointer to hand icon */
+    cursor: pointer;
+    margin-bottom: 24px;
+}
+
+/*
+This is the rotating box inside the frame that holds both the
+front and back faces.
+ */
+.card-inner {
+/*
+Establishes the coordinate origin for its children (.card-front
+and .card-back), allowing them to stack directly on top of each
+other using position: absolute.
+ */
+    position: relative;
+    width: 100%;
+    height: 100%;
+/* keeps the child elements in 3D */
+    transform-style: preserve-3d;
+/*
+A timing curve that makes the flip start smoothly, spin
+quickly, and decelerate gracefully into place rather
+*/
+    transition: transform 1.2s cubic-bezier(0.2, 0.3, 0.2, 1);
+}
+
+.card-container.flipped .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    background: linear-gradient(145deg, #1e1e27, #181820);
+    border-radius: 18px;
+    border: 4px solid var(--card-border);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.5),
+                0 0 25px rgba(236, 72, 153, 0.08);
+/*
+this tells the browser: "Whenever this face is rotated
+more than 90deg away from the user, turn it invisible.
+because in computer graphics elements are double-sided by default.
+*/
+    backface-visibility: hidden;
+/* cuts off anything that extends past the boundary */
+    overflow: hidden;
+/*
+Forcing translateZ(0) moves the element onto the computer's
+graphics card (GPU layer), eliminating rendering glitches and corner
+bleeding during rotation.
+ */
+    transform: translateZ(0);
+}
+
+.card-front {
+    padding: 24px 28px;
+    display: flex;
+    transform: rotateY(0deg);
+    align-items: center;
+/*
+the distance between the right column and the left column on the
+front of the card
+*/
+    gap: 50px;
+/* ensures that the front of the card is sitting above the back of the card */
+    z-index: 2;
+    box-sizing: border-box;
+}
+
+.card-back {
+/*
+it rotates the photo on the back so we when we rotate the whole thing,
+only then it can be seen
+*/
+    transform: rotateY(180deg);
+    display: flex;
+/* It tells the browser: "Stack my children vertically on top of each other." */
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    padding: 0;
+    overflow: hidden;
+/*
+A mathematical mask that trims all 4 corners into a rounded curve
+of 14px, preventing image corners from poking through the
+border during 3D rotations.
+*/
+    clip-path: inset(0 round 14px);
+    background: #15151c;
+}
+
+.terminal-bar {
+    height: 34px;
+    width: 100%;
+    background: #1a1a24;
+    border-bottom: 1px solid rgba(236, 72, 153, 0.2);
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.term-dots {
+    display: flex;
+    gap: 7px;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+.dot.red { background-color: #ef4444; }
+.dot.yellow { background-color: #f59e0b; }
+.dot.green { background-color: #10b981; }
+
+.term-title {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: ui-monospace, "SF Mono", monospace;
+    font-size: 12px;
+    color: #94a3b8;
+    letter-spacing: 0.5px;
+}
+
+.terminal-body {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 65px;
+    gap: 48px;
+    box-sizing: border-box;
+}
+
+.ascii-art {
+    margin: 0;
+    font-family: ui-monospace, "SF Mono", monospace;
+    color: var(--pink-primary);
+    font-size:9px;
+    line-height: 1.05;
+    letter-spacing: 0;
+    text-shadow: 0 0 10px var(--pink-glow);
+    font-weight: bold;
+/* prevents the user from highlighting or selecting the text with the mouse cursor. */
+    user-select: none;
+/* Instructs the browser to render whitespace as they are */
+    white-space: pre;
+}
+
+.fetch-info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-family: "corpticfont", monospace;
+    font-size: 16px;
+    line-height: 1.4;
+}
+
+.fetch-row {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+/* forces the text to remain on single horizontal line */
+    white-space: nowrap;
+}
+
+.f-key {
+    color: var(--pink-soft);
+    font-weight: 700;
+    min-width: 65px;
+    letter-spacing: 0.5px;
+}
+
+.f-val {
+    color: #e2e8f0;
+}
+
+.back-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.left-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+    width: 175px;
+    margin-right: 0;
+}
+
+#abimg {
+    width: 162px;
+    height: 162px;
+    object-fit: cover;
+    border-radius: 14px;
+    border: 2px solid var(--pink-primary);
+    display: block;
+    box-shadow: 0 0 18px var(--pink-glow);
+    margin-bottom: 10px;
+}
+
+.badges {
+    margin-top: 6px;
+    display: flex;
+/*
+it glues the first span to the left, and the other one to
+the right, and the all the empty space that's available,
+sits between them.
+*/
+    justify-content: space-between;
+    width: 100%;
+    padding: 3px 10px;
+    line-height: 1.8;
+    background-color: rgba(255, 255, 255, 0.04);
+    color: #e2e8f0;
+    font-size: 11.5px;
+    font-weight: 500;
+    border-radius: 8px;
+    border: 1px solid rgba(236, 72, 153, 0.2);
+    font-family: "corpticfont", serif;
+    letter-spacing: 0.5px;
+    box-sizing: border-box;
+}
+
+.badges span:first-child {
+    color: var(--pink-soft);
+    font-weight: 600;
+}
+
+.badges span:last-child {
+    color: #e2e8f0;
+}
+
+.right-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    margin-left: 0;
+    justify-content: flex-start;
+    padding-top: 26px;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.title {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 2.1rem;
+    text-align: center;
+    font-family: "robotheroesfont", serif;
+    letter-spacing: 4px;
+    margin-left: -25px;
+    color: #ffffff;
+    text-shadow: 0 0 15px rgba(236, 72, 153, 0.35);
+}
+
+#subtitle {
+    margin-top: 4px;
+    margin-bottom: 6px;
+    color: var(--pink-soft);
+    font-weight: 400;
+    font-size: 0.95rem;
+/*
+subtitle is a child of title, if this wasn't here,
+this would also have letter spacing of 5
+*/
+    letter-spacing: 1.5px;
+    font-family: "corpticfont", monospace;
+}
+
+.desc {
+    margin-top: 30px;
+    width: 100%;
+    display: flex;
+    justify-content: center; /* Centers the constrained list box inside the column */
+}
+
+.list {
+    text-align: left;
+/*
+The bullet point sits completely outside the content box
+in the left/right margin. setting it to inside will keep
+the bullet points inside of the content box.
+although the line is commented because native bullets are turned off
+and instead in li::before custom bullets are being used
+*/
+/* list-style-position: inside; */
+    list-style: none;
+    display: block;
+    width: 100%;
+    max-width: 440px;
+    padding: 0;
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 0.95rem;
+    color: #cbd5e1;
+    line-height: 1.5;
+}
+
+.list li {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 10px;
+}
+
+.list li::before {
+    content: "▹";
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--pink-primary);
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.highlight {
+    color: var(--pink-soft);
+    font-weight: 600;
+}
+
+.highlight-inline {
+    color: #ffffff;
+    font-weight: 600;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    background: linear-gradient(135deg, #db2777, #be185d);
+    color: #ffffff;
+    text-decoration: none; /* removes the underline for links */
+    padding: 9px 24px; /* 8px is for top and bottom, 26 is for left and right. */
+    border-radius: 10px;
+    font-family: "corpticfont", monospace;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.8px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    box-shadow: 0 4px 18px var(--pink-glow);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn:hover {
+    transform: translateY(-2px) scale(1.04);
+/* when the mouse is hovering over the button, the shadow gets bigger */
+    box-shadow: 0 6px 22px rgba(236, 72, 153, 0.7);
+}
+
+.btn:active {
+    transform: translateY(0) scale(0.98);
+}
+
+.button,
+.button-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 24px;
+}
